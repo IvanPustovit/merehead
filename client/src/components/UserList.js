@@ -29,7 +29,6 @@ const UserList = ({ users }) => {
 			</Pagination.Item>
 		);
 	}
-
 	useEffect(() => {
 		if (users.length > 0) {
 			setDisplayUser(users.slice(offset, offset + pageLimit));

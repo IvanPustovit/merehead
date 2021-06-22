@@ -23,7 +23,8 @@ app.use(
 app.use(express.static('static'));
 app.use(express.static('files'));
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
+app.use('/api', userRouter);
 
 if (process.env.NODE_ENV === 'production') {
 	app.use('/', express.static(path.join(__dirname, 'client', 'build')));
@@ -32,8 +33,6 @@ if (process.env.NODE_ENV === 'production') {
 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 	});
 }
-
-app.use('/api', userRouter);
 
 const start = async () => {
 	try {
